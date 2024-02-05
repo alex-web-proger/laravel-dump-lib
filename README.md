@@ -11,12 +11,12 @@
  php artisan vendor:publish --tag=alexlendump
 ```
 
-### Использование
+### Описание
 Каталог расположения дампа: storage/app/dump
 
 Перед импортом автоматически создается бекап в каталоге storage/app/dump/backup
 
-Чтобы при ипортировании избежать создания бекапа, нужно указать ключ --no-backup
+Для работы использовать класс <code>Alexlen\DumpLib\DumpDb</code>
 
-### Примеры
+
 
