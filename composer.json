@@ -1,6 +1,6 @@
 {
     "name": "alexlen/laravel-dump-lib",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Export/import database library",
     "minimum-stability": "stable",
     "license": "MIT",
