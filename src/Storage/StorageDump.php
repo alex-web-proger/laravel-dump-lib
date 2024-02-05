@@ -25,7 +25,7 @@ class StorageDump
     /**
      * Имя файла с полным путем к нему на диске
      */
-    public function fullFilename($filename)
+    public function getFullFilename($filename)
     {
         return storage_path("app/" . $this->dumpDirName) . '/' . $filename;
     }
