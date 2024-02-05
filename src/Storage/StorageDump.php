@@ -19,7 +19,7 @@ class StorageDump
         Storage::makeDirectory($this->dumpDirName);
 
         $this->backupDirName = config('alexlendump.backup_dir_name', self::DEFAULT_BACKUP_DIR_NAME);
-        Storage::makeDirectory($this->backupDirName);
+        Storage::makeDirectory($this->dumpDirName . '/' . $this->backupDirName);
     }
 
     /**
