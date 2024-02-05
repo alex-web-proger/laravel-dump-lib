@@ -18,5 +18,12 @@
         "psr-4": {
             "Alexlen\\DumpLib\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alexlen\\DumpLib\\Providers\\DumpServiceProvider"
+            ]
+        }
     }
 }

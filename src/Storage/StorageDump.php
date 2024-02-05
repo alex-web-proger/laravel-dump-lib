@@ -30,15 +30,18 @@ class StorageDump
 
     public function getBackupDir()
     {
-        $dir = self::STORAGE_DIR_NAME . "/" . self::STORAGE_BACKUP_DIR_NAME . "/";
-        Storage::makeDirectory($dir);
+        Storage::makeDirectory($this->getBackupPath());
         return self::STORAGE_BACKUP_DIR_NAME;
+    }
+
+    private function getBackupPath()
+    {
+        return self::STORAGE_DIR_NAME . "/" . self::STORAGE_BACKUP_DIR_NAME . "/";
     }
 
     public function getBackupFiles()
     {
-        $dir = self::STORAGE_DIR_NAME . "/" . self::STORAGE_BACKUP_DIR_NAME . "/";
-        $files = Storage::files($dir);
+        $files = Storage::files($this->getBackupPath());
         $result = [];
         if ($files) {
             foreach ($files as $file) {
@@ -51,8 +54,7 @@ class StorageDump
 
     public function delete($filename)
     {
-        $dir = self::STORAGE_DIR_NAME . "/" . self::STORAGE_BACKUP_DIR_NAME . "/";
-        Storage::delete($dir . $filename);
+        Storage::delete($this->getBackupPath() . $filename);
     }
 
     private function getDateTimeFile($file)
@@ -75,6 +77,17 @@ class StorageDump
     public function addPathBackup($filename)
     {
         return self::STORAGE_BACKUP_DIR_NAME . '/' . $filename;
+    }
+
+    public function clearBackup($maxFilesBackUp = false)
+    {
+        $files = Storage::files($this->getBackupPath());
+        if ($maxFilesBackUp && count($files) >= $maxFilesBackUp) {
+            $count = count($files) - $maxFilesBackUp;
+            for ($i = 0; $i < $count; $i++) {
+                Storage::delete($files[$i]);
+            }
+        }
     }
 
 }

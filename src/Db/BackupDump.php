@@ -27,6 +27,11 @@ class BackupDump
 
         $filename = "$backupDir/" . FilenameHelper::backupFilename($filename);
 
-        return $this->dump->export($filename);
+        if ($res = $this->dump->export($filename)) {
+            $storage->clearBackup(config('alexlendump.backup_max_count_files', 10));
+        }
+
+        return $res;
+
     }
 }
