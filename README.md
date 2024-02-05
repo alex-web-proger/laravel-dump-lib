@@ -14,7 +14,7 @@
 ### Описание
 Каталог расположения дампа по умолчанию: storage/app/dump
 
-Каталог расположения бекапов по умолчанию: storage/app/backup
+Каталог расположения бекапов по умолчанию: storage/app/dump/backup
 
 Работа посредством класса <code>Alexlen\DumpLib\DumpDb</code>
 

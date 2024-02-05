@@ -25,7 +25,7 @@ class StorageDump
     /**
      * Имя файла с полным путем к нему на диске
      */
-    public function getFullFilename($filename)
+    public function addDumpPath($filename)
     {
         return storage_path("app/" . $this->dumpDirName) . '/' . $filename;
     }
@@ -37,13 +37,12 @@ class StorageDump
 
     public function getBackupDir()
     {
-        Storage::makeDirectory($this->getBackupPath());
         return $this->backupDirName;
     }
 
     private function getBackupPath()
     {
-        return $this->backupDirName . "/";
+        return $this->dumpDirName . '/' . $this->backupDirName . "/";
     }
 
     public function getBackupFiles()
