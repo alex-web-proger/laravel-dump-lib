@@ -12,11 +12,11 @@
 ```
 
 ### Описание
-Каталог расположения дампа: storage/app/dump
+Каталог расположения дампа по умолчанию: storage/app/dump
 
-Перед импортом автоматически создается бекап в каталоге storage/app/dump/backup
+Каталог расположения бекапов по умолчанию: storage/app/backup
 
-Для работы использовать класс <code>Alexlen\DumpLib\DumpDb</code>
+Работа посредством класса <code>Alexlen\DumpLib\DumpDb</code>
 
 
 

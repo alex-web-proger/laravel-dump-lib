@@ -7,12 +7,19 @@ use Illuminate\Support\Facades\Storage;
 
 class StorageDump
 {
-    const STORAGE_DIR_NAME = 'dump';
-    const STORAGE_BACKUP_DIR_NAME = 'backup';
+    const DEFAULT_DUMP_DIR_NAME = 'dump';
+    const DEFAULT_BACKUP_DIR_NAME = 'backup';
+
+    private $dumpDirName;
+    private $backupDirName;
 
     public function __construct()
     {
-        Storage::makeDirectory(self::STORAGE_DIR_NAME);
+        $this->dumpDirName = config('alexlendump.dump_dir_name', self::DEFAULT_DUMP_DIR_NAME);
+        Storage::makeDirectory($this->dumpDirName);
+
+        $this->backupDirName = config('alexlendump.backup_dir_name', self::DEFAULT_BACKUP_DIR_NAME);
+        Storage::makeDirectory($this->backupDirName);
     }
 
     /**
@@ -20,23 +27,23 @@ class StorageDump
      */
     public function getFullFilename($filename)
     {
-        return storage_path("app/" . self::STORAGE_DIR_NAME) . '/' . $filename;
+        return storage_path("app/" . $this->dumpDirName) . '/' . $filename;
     }
 
     public function existsFile($filename)
     {
-        return Storage::exists(self::STORAGE_DIR_NAME . '/' . $filename);
+        return Storage::exists($this->dumpDirName . '/' . $filename);
     }
 
     public function getBackupDir()
     {
         Storage::makeDirectory($this->getBackupPath());
-        return self::STORAGE_BACKUP_DIR_NAME;
+        return $this->backupDirName;
     }
 
     private function getBackupPath()
     {
-        return self::STORAGE_DIR_NAME . "/" . self::STORAGE_BACKUP_DIR_NAME . "/";
+        return $this->backupDirName . "/";
     }
 
     public function getBackupFiles()
@@ -76,7 +83,7 @@ class StorageDump
 
     public function addPathBackup($filename)
     {
-        return self::STORAGE_BACKUP_DIR_NAME . '/' . $filename;
+        return $this->backupDirName . '/' . $filename;
     }
 
     public function clearBackup($maxFilesBackUp = false)
