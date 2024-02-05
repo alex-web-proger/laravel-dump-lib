@@ -27,6 +27,6 @@ class DumpServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/alexlendump.php' => config_path('alexlendump.php'),
-        ]);
+        ], 'alexlendump');
     }
 }
