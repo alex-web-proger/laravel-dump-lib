@@ -43,12 +43,11 @@
 
 Для создания бекапа из-под планировщика предназначен класс <code>Alexlen\DumpLib\ScheduleBackupDb</code>:
 
-<code>
+```sh
  protected function schedule(Schedule $schedule): void
     {
         $schedule->call(new ScheduleBackupDb());
     }
-</code>
-
+```
 
 
