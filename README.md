@@ -47,7 +47,7 @@ __invoke. Его вызов нужно добавить в планировщи�
 ```sh
  protected function schedule(Schedule $schedule): void
  {
-    $schedule->call(new ScheduleBackupDb());
+    $schedule->call(new ScheduleBackupDb())->weeklyOn(1,'2:00');;
  }
 ```
 
