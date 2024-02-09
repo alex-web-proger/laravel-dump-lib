@@ -28,7 +28,11 @@
     <tbody>
         <tr>
             <td><code>DumpDb::export('my_dump.sql');</code></td>
-            <td>Сохранить дамп БД в папку <code>storage/app/dump/</code></td>
+            <td>Сохранить дамп БД в папку <code>storage/app/dump/</code> в файле с указанным именем</td>
+        </tr>
+        <tr>
+            <td><code>DumpDb::import('my_dump.sql');</code></td>
+            <td>Импортировать дамп в базу данных</td>
         </tr>
     </tbody>
 </table>
