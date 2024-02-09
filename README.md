@@ -34,8 +34,21 @@
             <td><code>DumpDb::import('my_dump.sql');</code></td>
             <td>Импортировать дамп в базу данных</td>
         </tr>
+        <tr>
+            <td><code>DumpDb::backup();</code></td>
+            <td>Создать бекап базы данных</td>
+        </tr>
     </tbody>
 </table>
+
+Для создания бекапа из-под планировщика предназначен класс <code>Alexlen\DumpLib\ScheduleBackupDb</code>:
+
+<code>
+ protected function schedule(Schedule $schedule): void
+    {
+        $schedule->call(new ScheduleBackupDb());
+    }
+</code>
 
 
 
