@@ -12,9 +12,9 @@
 ```
 
 ### Описание
-Каталог расположения дампа по умолчанию: storage/app/dump
+Каталог расположения дампа по умолчанию: <code>storage/app/dump</code>
 
-Каталог расположения бекапов по умолчанию: storage/app/dump/backup
+Каталог расположения бекапов по умолчанию: <code>storage/app/dump/backup</code>
 
 Работа посредством класса <code>Alexlen\DumpLib\DumpDb</code>
 
