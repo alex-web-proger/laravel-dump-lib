@@ -16,7 +16,7 @@
 
 Каталог расположения бекапов по умолчанию: <code>storage/app/dump/backup</code>
 
-Работа посредством класса <code>Alexlen\DumpLib\DumpDb</code>
+Работа посредством класса <code>Alexlen\DumpLib\DumpDb</code>:
 
 <table>
     <thead>
@@ -30,8 +30,6 @@
             <td><code>DumpDb::export('my_dump.sql');</code></td>
             <td>Сохранить дамп БД в папку <code>storage/app/dump/</code></td>
         </tr>
-
-                                                                                  
     </tbody>
 </table>
 
