@@ -41,13 +41,14 @@
     </tbody>
 </table>
 
-Для создания бекапа из-под планировщика предназначен класс <code>Alexlen\DumpLib\ScheduleBackupDb</code>:
+Для создания бекапа из-под планировщика предназначен класс <code>Alexlen\DumpLib\ScheduleBackupDb</code>, содержащий метод 
+__invoke. Его вызов нужно добавить в планировщик:
 
 ```sh
  protected function schedule(Schedule $schedule): void
-    {
-        $schedule->call(new ScheduleBackupDb());
-    }
+ {
+    $schedule->call(new ScheduleBackupDb());
+ }
 ```
 
 
